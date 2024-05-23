@@ -24,7 +24,7 @@ for(var tx = 0; tx < 120; tx++){
 		tileIndex = tileData[TILE.SPRITE];
 		tileZ = tileData[TILE.Z];
 		
-		if(tileIndex != 0) draw_sprite(sStatic, tileIndex - 1, roomX, roomY + tileZ);
+		if(tileIndex != 0) draw_sprite(sStatic, tileIndex, roomX, roomY + tileZ);
 		
 		if(screenToTileX(mouse_x, mouse_y) == Tx && screenToTileY(mouse_x, mouse_y) == Ty){
 				draw_sprite(sOutline, 0, roomX, roomY + tileZ);

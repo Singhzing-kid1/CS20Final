@@ -12,13 +12,13 @@ if(mouse_check_button(mb_left)){
 }
 
 // for dev testing
-//if(mouse_wheel_up()){
-//	cameraZoom -= 0.1;
-//	cameraZoom = cameraZoom < 0.1 ? 0.1 : cameraZoom;
-//}
+if(mouse_wheel_up()){
+	cameraZoom -= 0.1;
+	cameraZoom = cameraZoom < 0.1 ? 0.1 : cameraZoom;
+}
 
-//if(mouse_wheel_down()){
+if(mouse_wheel_down()){
 
-//	cameraZoom += 0.1;
-//	cameraZoom = cameraZoom > 99 ? 99 : cameraZoom;
-//}
+	cameraZoom += 0.1;
+	cameraZoom = cameraZoom > 99 ? 99 : cameraZoom;
+}

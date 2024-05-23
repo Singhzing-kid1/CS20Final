@@ -47,6 +47,7 @@
     {"id":{"name":"tileToRoomX","path":"scripts/tileToRoomX/tileToRoomX.yy",},},
     {"id":{"name":"tileToRoomY","path":"scripts/tileToRoomY/tileToRoomY.yy",},},
     {"id":{"name":"sOutline","path":"sprites/sOutline/sOutline.yy",},},
+    {"id":{"name":"sPerlinNoiseMaps","path":"sprites/sPerlinNoiseMaps/sPerlinNoiseMaps.yy",},},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},},
     {"id":{"name":"sStatic","path":"sprites/sStatic/sStatic.yy",},},
     {"id":{"name":"sTile","path":"sprites/sTile/sTile.yy",},},
