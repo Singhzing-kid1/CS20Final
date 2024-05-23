@@ -43,7 +43,7 @@ for(var tx = 0; tx < MAP_W; tx++){
 		var m = surface_getpixel(moistureMap, tx, ty);
 
 		var avgH = h/255;
-		var avgM = m;
+		var avgM = m/255;
 		
 		show_debug_message(avgH);
 		
@@ -52,6 +52,7 @@ for(var tx = 0; tx < MAP_W; tx++){
 		
 		if((avgH >= 0.5 && avgH <= 1.0)){
 			tileData = [1, 0];	
+			show_debug_message("grass");
 		} else {
 			tileData = [2, 0];	
 		}
