@@ -1,5 +1,3 @@
-layer_set_visible("Map", false);
-
 view_enabled = true;
 view_visible[0] = true;
 view_camera[0] = camera_create_view(0, 0, CAM_W, CAM_H, 0, noone, -1, -1, -1, -1);
@@ -10,14 +8,14 @@ window_center();
 surface_resize(application_surface, SCREEN_W, SCREEN_H);
 
 global.map = ds_grid_create(MAP_W, MAP_H);
+global.resources = ds_grid_create(MAP_W, MAP_H);
+global.placeables = ds_grid_create(MAP_W, MAP_H);
 
 random_set_seed(current_time);
 
 var heightMapIndex = irandom_range(0, 9);
 var moistureMapIndex = irandom_range(0, 8);
 var tempMapIndex = irandom_range(0, 7);
-
-show_debug_message("{0} {1} {2}", heightMapIndex, moistureMapIndex, tempMapIndex);
 
 moistureMapIndex = moistureMapIndex == heightMapIndex ? moistureMapIndex - 1 : moistureMapIndex;
 tempMapIndex = (tempMapIndex == moistureMapIndex) || (tempMapIndex == heightMapIndex) ? tempMapIndex - 2 : tempMapIndex;
@@ -51,6 +49,7 @@ for(var tx = 0; tx < MAP_W; tx++){
 		
 		// SPRITE, Z
 		var tileData = [0, 0];
+		var placeableTileData = [0, -16];
 		
 		if(inPercentRangeWithOffset([0.7, 1.0], 255, heightVal, 0) && inPercentRangeWithOffset([0.0, 0.3], 255, moistureVal, 0) && inPercentRangeWithOffset([0.0, 0.3], 255, tempVal, 0)) // Tundra
 			tileData = [1, 0];
@@ -72,5 +71,6 @@ for(var tx = 0; tx < MAP_W; tx++){
 			tileData = [9, 0];
 		
 		global.map[# tx, ty] = tileData;
+		global.placeables[# tx, ty] = placeableTileData;
 	}
 }

@@ -4,8 +4,6 @@ function inPercentRangeWithOffset(range, outOf, number, offSet){
 	
 	var currentPercent = (number - offSet)/outOf;
 	
-	show_debug_message(currentPercent);
-	
 	if(lowerBound <= currentPercent && currentPercent <= upperBound)
 		return true;
 	else

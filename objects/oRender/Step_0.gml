@@ -2,13 +2,13 @@
 
 
 if(mouse_check_button(mb_right)){
-	var tile = [1, 0];
-	global.map[# screenToTileX(mouse_x, mouse_y), screenToTileY(mouse_x, mouse_y)] = tile;			
+	var tile = [1, -16];
+	global.placeables[# screenToTileX(mouse_x, mouse_y) + 1, screenToTileY(mouse_x, mouse_y) + 1] = tile;			
 }
 
 if(mouse_check_button(mb_left)){
-	var tile = [0, 0];
-	global.map[# screenToTileX(mouse_x, mouse_y), screenToTileY(mouse_x, mouse_y)] = tile;			
+	var tile = [0, -16];
+	global.placeables[# screenToTileX(mouse_x, mouse_y) + 1, screenToTileY(mouse_x, mouse_y) + 1] = tile;			
 }
 
 // for dev testing

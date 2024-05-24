@@ -1,6 +1,6 @@
 /// @desc Render
-var roomX, roomY, tileIndex, tileZ, Tx, Ty;
-var tileData;
+var roomX, roomY, mapTileIndex, mapTileZ, placeableTileZ, placeableTileIndex, Tx, Ty;
+var mapTileData, placeableTileData;
 
 camera_set_view_size(view_camera[0], CAM_W * cameraZoom, CAM_H * cameraZoom);
 
@@ -17,17 +17,22 @@ for(var tx = 0; tx < 120; tx++){
 	for(var ty = 0; ty < 120; ty++){
 		Tx = tx + renderAreaX - 1;
 		Ty = ty + renderAreaY - 1;
-		tileData = global.map[# Tx, Ty];
+		mapTileData = global.map[# Tx, Ty];
+		placeableTileData = global.placeables[# Tx, Ty];
 		roomX = tileToRoomX(Tx, Ty);
 		roomY = tileToRoomY(Tx, Ty);
 		
-		tileIndex = tileData[TILE.SPRITE];
-		tileZ = tileData[TILE.Z];
+		mapTileIndex = mapTileData[TILE.SPRITE];
+		mapTileZ = mapTileData[TILE.Z];
 		
-		if(tileIndex != 0) draw_sprite(sStatic, tileIndex, roomX, roomY + tileZ);
+		placeableTileIndex = placeableTileData[TILE.SPRITE];
+		placeableTileZ = placeableTileData[TILE.Z];
 		
-		if(screenToTileX(mouse_x, mouse_y) == Tx && screenToTileY(mouse_x, mouse_y) == Ty){
-				draw_sprite(sOutline, 0, roomX, roomY + tileZ);
+		if(mapTileIndex != 0) draw_sprite(sStatic, mapTileIndex, roomX, roomY + mapTileZ);
+		if(placeableTileIndex != 0) draw_sprite(sStatic, placeableTileIndex, roomX, roomY + placeableTileZ);
+		
+		if(screenToTileX(mouse_x, mouse_y) == Tx - 1 && screenToTileY(mouse_x, mouse_y) == Ty - 1){
+				draw_sprite(sOutline, 0, roomX, roomY + placeableTileZ);
 		}
 	}
 }
