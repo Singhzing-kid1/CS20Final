@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"sPerlinNoiseMaps",
   "bboxMode":0,
-  "bbox_bottom":623,
+  "bbox_bottom":1247,
   "bbox_left":0,
-  "bbox_right":623,
+  "bbox_right":1247,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -25,7 +25,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":624,
+  "height":1248,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"77c7d19b-ea20-4114-b906-f57a9e6c4da5","blendMode":0,"displayName":"default","isLocked":false,"name":"77c7d19b-ea20-4114-b906-f57a9e6c4da5","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -141,5 +141,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":624,
+  "width":1248,
 }

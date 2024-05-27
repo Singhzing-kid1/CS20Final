@@ -2,13 +2,17 @@
 
 
 if(mouse_check_button(mb_right)){
-	var tile = [1, -16];
-	global.placeables[# screenToTileX(mouse_x, mouse_y) + 1, screenToTileY(mouse_x, mouse_y) + 1] = tile;			
+	var tile = [1, -15, 0];
+	var currentTileData = global.placeablesAndResources [# screenToTileX(mouse_x, mouse_y) + 1, screenToTileY(mouse_x, mouse_y) + 1];
+	
+	if(currentTileData[2] == 0) global.placeablesAndResources[# screenToTileX(mouse_x, mouse_y) + 1, screenToTileY(mouse_x, mouse_y) + 1] = tile;			
 }
 
 if(mouse_check_button(mb_left)){
-	var tile = [0, -16];
-	global.placeables[# screenToTileX(mouse_x, mouse_y) + 1, screenToTileY(mouse_x, mouse_y) + 1] = tile;			
+	var tile = [0, -15, 0];
+	var currentTileData = global.placeablesAndResources [# screenToTileX(mouse_x, mouse_y) + 1, screenToTileY(mouse_x, mouse_y) + 1];
+	
+	if(currentTileData[2] == 0) global.placeablesAndResources[# screenToTileX(mouse_x, mouse_y) + 1, screenToTileY(mouse_x, mouse_y) + 1] = tile;			
 }
 
 // for dev testing

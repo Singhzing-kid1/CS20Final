@@ -8,8 +8,7 @@ window_center();
 surface_resize(application_surface, SCREEN_W, SCREEN_H);
 
 global.map = ds_grid_create(MAP_W, MAP_H);
-global.resources = ds_grid_create(MAP_W, MAP_H);
-global.placeables = ds_grid_create(MAP_W, MAP_H);
+global.placeablesAndResources = ds_grid_create(MAP_W, MAP_H);
 
 random_set_seed(current_time);
 
@@ -49,7 +48,7 @@ for(var tx = 0; tx < MAP_W; tx++){
 		
 		// SPRITE, Z
 		var tileData = [0, 0];
-		var placeableTileData = [0, -16];
+		var placeableTileData = [0, -15, 0];
 		
 		if(inPercentRangeWithOffset([0.7, 1.0], 255, heightVal, 0) && inPercentRangeWithOffset([0.0, 0.3], 255, moistureVal, 0) && inPercentRangeWithOffset([0.0, 0.3], 255, tempVal, 0)) // Tundra
 			tileData = [1, 0];
@@ -71,6 +70,56 @@ for(var tx = 0; tx < MAP_W; tx++){
 			tileData = [9, 0];
 		
 		global.map[# tx, ty] = tileData;
-		global.placeables[# tx, ty] = placeableTileData;
+		global.placeablesAndResources[# tx, ty] = placeableTileData;
+	}
+}
+
+for(var xx = 0; xx < 700; xx++){
+	var tx = irandom_range(0, MAP_W - 1);
+	var ty = irandom_range(0, MAP_H - 1);
+	
+	var type;
+	
+	var tileData = global.map[# tx, ty];
+	var sprite = tileData[TILE.SPRITE];
+	var resourceTileData = [0, -15, 1];
+	
+	if(inRange([1, 9], sprite)){
+		var shapeVariation = irandom_range(0, 4);
+	
+		if(global.resourceVariations[shapeVariation] == [4]){
+			var shape = global.resourceVariations[0];
+			resourceTileData = [shape[0], -15, 1];	
+		}
+	
+		if(global.resourveVarations[shapeVariation] == [4, 4, 4, 4]){
+			for(var xxx = 0; xxx < 2; xxx++){
+				for(var yyy = 0; yyy < 2; yyy++){
+					var shape = global.resourceVariations[1];
+					resourceTileData = [shape[xxx * 2 + yyy], -15, 1];
+					global.placeablesAndResources[# tx + xxx, ty + yyy] = resourceTileData;
+				}		
+			}
+		}
+	
+		if(global.resourceVariations[shapeVariaiton] == [1, 4, 7, 1, 4, 7]){
+			for(var xxx = 0; xxx < 2; xxx++){
+				for(var yyy = 0; yyy < 3; yyy++){
+					var shape = global.resourceVariations[2];
+					resourceTileData = [shape[xxx * 2 + yyy], -15, 1];
+					global.placeablesAndResources[# tx + xxx, ty + yyy] = resourceTileData;
+				}		
+			}
+		}
+	
+		if(global.resourceVariations[shapeVariation] == [2, 3, 2, 7, 4, 1, 6, 5, 8]){
+			for(var xxx = 0; xxx < 3; xxx++){
+				for(var yyy = 0; yyy < 3; yyy++){
+					var shape = global.resourceVariations[3];
+					resourceTileData = [shape[xxx * 3 + yyy], -15, 1];
+					global.placeablesAndResources[# tx + xxx, ty + yyy] = resourceTileData;
+				}		
+			}	
+		}
 	}
 }

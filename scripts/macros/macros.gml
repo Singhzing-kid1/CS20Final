@@ -14,6 +14,20 @@ enum TILE{
 	Z = 1
 }
 
-global.permTable = array_create(512);
 
-global.gradTable = array_create(512);
+global.resourceVariations = array_create(4, Array);
+
+var oneXOne = [4];
+
+var twoXTwo = [4, 4, 
+			   4, 4];
+			   
+var twoXThree = [1, 4, 7,
+				 1, 4, 7];
+				 
+var threeXThree = [2, 3, 2,
+				   7, 4, 1,
+				   6, 5, 8];
+				   
+global.resourceVariations = [oneXOne, twoXTwo, twoXThree, threeXThree];
+	
