@@ -46,6 +46,8 @@ for(var tx = 0; tx < MAP_W; tx++){
 		var moistureVal = color_get_red(surface_getpixel(moistureMap, tx, ty));
 		var tempVal = color_get_red(surface_getpixel(tempMap, tx, ty));
 		
+		show_debug_message(tx * MAP_W + ty);
+		
 		// SPRITE, Z
 		var tileData = [0, 0];
 		var placeableTileData = [0, -15, 0];
@@ -85,14 +87,15 @@ for(var xx = 0; xx < 700; xx++){
 	var resourceTileData = [0, -15, 1];
 	
 	if(inRange([1, 9], sprite)){
-		var shapeVariation = irandom_range(0, 4);
+		var shapeVariation = irandom_range(0, 3);
+		var selectedShape = global.resourceVariations[shapeVariation];
 	
-		if(global.resourceVariations[shapeVariation] == [4]){
+		if(array_equals(selectedShape, [4])){
 			var shape = global.resourceVariations[0];
 			resourceTileData = [shape[0], -15, 1];	
 		}
 	
-		if(global.resourveVarations[shapeVariation] == [4, 4, 4, 4]){
+		if(array_equals(selectedShape, [4, 4, 4, 4])){
 			for(var xxx = 0; xxx < 2; xxx++){
 				for(var yyy = 0; yyy < 2; yyy++){
 					var shape = global.resourceVariations[1];
@@ -102,17 +105,17 @@ for(var xx = 0; xx < 700; xx++){
 			}
 		}
 	
-		if(global.resourceVariations[shapeVariaiton] == [1, 4, 7, 1, 4, 7]){
-			for(var xxx = 0; xxx < 2; xxx++){
-				for(var yyy = 0; yyy < 3; yyy++){
+		if(array_equals(selectedShape, [7, 7, 4, 4, 1, 1])){
+			for(var yyy = 0; yyy < 3; yyy++){
+				for(var xxx = 0; xxx < 2; xxx++){
 					var shape = global.resourceVariations[2];
-					resourceTileData = [shape[xxx * 2 + yyy], -15, 1];
+					resourceTileData = [shape[yyy * 2 + xxx], -15, 1];
 					global.placeablesAndResources[# tx + xxx, ty + yyy] = resourceTileData;
-				}		
+				}
 			}
 		}
 	
-		if(global.resourceVariations[shapeVariation] == [2, 3, 2, 7, 4, 1, 6, 5, 8]){
+		if(array_equals(selectedShape, [9, 3, 2, 7, 4, 1, 6, 5, 8])){
 			for(var xxx = 0; xxx < 3; xxx++){
 				for(var yyy = 0; yyy < 3; yyy++){
 					var shape = global.resourceVariations[3];
