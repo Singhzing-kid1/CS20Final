@@ -46,8 +46,6 @@ for(var tx = 0; tx < MAP_W; tx++){
 		var moistureVal = color_get_red(surface_getpixel(moistureMap, tx, ty));
 		var tempVal = color_get_red(surface_getpixel(tempMap, tx, ty));
 		
-		show_debug_message(tx * MAP_W + ty);
-		
 		// SPRITE, Z
 		var tileData = [0, 0];
 		var placeableTileData = [0, -15, 0];

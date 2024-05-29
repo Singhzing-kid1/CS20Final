@@ -34,6 +34,7 @@
   },
   "name":"CS FInal",
   "resources":[
+    {"id":{"name":"fMainFont","path":"fonts/fMainFont/fMainFont.yy",},},
     {"id":{"name":"Note1","path":"notes/Note1/Note1.yy",},},
     {"id":{"name":"oInventory","path":"objects/oInventory/oInventory.yy",},},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
@@ -46,7 +47,7 @@
     {"id":{"name":"screenToTileY","path":"scripts/screenToTileY/screenToTileY.yy",},},
     {"id":{"name":"tileToRoomX","path":"scripts/tileToRoomX/tileToRoomX.yy",},},
     {"id":{"name":"tileToRoomY","path":"scripts/tileToRoomY/tileToRoomY.yy",},},
-    {"id":{"name":"sEmptyInv","path":"sprites/sEmptyInv/sEmptyInv.yy",},},
+    {"id":{"name":"sInventory","path":"sprites/sInventory/sInventory.yy",},},
     {"id":{"name":"sOutline","path":"sprites/sOutline/sOutline.yy",},},
     {"id":{"name":"sPerlinNoiseMaps","path":"sprites/sPerlinNoiseMaps/sPerlinNoiseMaps.yy",},},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},},
